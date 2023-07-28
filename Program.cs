@@ -10,8 +10,8 @@ namespace ROCKPAPERSCISSORS
 
 
             bool playAgain = true;
-            
-            while(playAgain)
+
+            while (playAgain)
             {
                 int scorePlayer = 0;
                 int scoreCPU = 0;
@@ -19,7 +19,7 @@ namespace ROCKPAPERSCISSORS
                 while (scorePlayer < 3 && scoreCPU < 3)
                 {
                     Console.WriteLine("Choose between ROCK, PAPER and SCISSORS:  ");
-                    inputPlayer = Console.ReadLine();
+                    inputPlayer = Console.ReadLine().ToUpper;
 
                     Random rnd = new Random();
 
@@ -35,12 +35,12 @@ namespace ROCKPAPERSCISSORS
                             {
                                 Console.WriteLine("DRAW!!!\n\n");
                             }
-                            else if (inputPlayer == "Paper")
+                            else if (inputPlayer == "PAPER")
                             {
                                 Console.WriteLine("Player WINS!!\n\n");
                                 scorePlayer++;
                             }
-                            else if (inputPlayer == "Scissors")
+                            else if (inputPlayer == "SCISSORS")
                             {
                                 Console.WriteLine("Player LOSES!!\n\n");
                                 scoreCPU++;
@@ -55,7 +55,7 @@ namespace ROCKPAPERSCISSORS
                                 Console.WriteLine("Player LOSES!!\n\n");
                                 scoreCPU++;
                             }
-                            else if (inputPlayer == "Paper")
+                            else if (inputPlayer == "PAPER")
                             {
                                 Console.WriteLine("DRAW!!\n\n");
 
@@ -77,36 +77,40 @@ namespace ROCKPAPERSCISSORS
                                 scorePlayer++;
 
                             }
-                            else if (inputPlayer == "Paper")
+                            else if (inputPlayer == "PAPER")
                             {
                                 Console.WriteLine("Player LOSES!!\n\n");
                             }
-                            else if (inputPlayer == "Scissors")
+                            else if (inputPlayer == "SCISSORS")
                             {
                                 Console.WriteLine("DRAW!!\n\n");
                                 scoreCPU++;
                             }
                             break;
                         default:
+                            Console.WriteLine("Invalid entry!");
                             break;
                     }
 
-                    if (scorePlayer == 3)
-                    {
-                        Console.WriteLine("Player WON!");
-                    }
-
-                    else if (scoreCPU == 3)
-                    {
-                        Console.WriteLine("CPU WON!");
-                    }
-
-                    else
-                    {
-
-                    }
+                    Console.WriteLine("\n\nSCORES:\tPLAYER\t{0}\tCPU:\t{1}", scorePlayer, scoreCPU);
                 }
-            }      
+
+                if (scorePlayer == 3)
+                {
+                    Console.WriteLine("Player WON!");
+                }
+
+                else if (scoreCPU == 3)
+                {
+                    Console.WriteLine("CPU WON!");
+                }
+
+                else
+                {
+
+                }
+            }
+                 
 
             Console.WriteLine("Do you want to play again? (y/n)");
             string loop = Console.ReadLine();
